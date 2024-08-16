@@ -74,8 +74,6 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.namespace
-          - name: EXTRA_ARGS
-            value: "--spigot-settings __config/spigot.yml"
           # ここにプラグインのURLのリストを記載します (Define plugins here)
           # こちらもご覧ください(英語) Also see: https://docker-minecraft-server.readthedocs.io/en/latest/mods-and-plugins/
           - name: PLUGINS
@@ -89,13 +87,27 @@ spec:
           periodSeconds: 10
         volumeMounts:
         - name: spigot-yml
-          mountPath: /data/__config
+          mountPath: /data/spigot.yml
+          subPath: spigot.yml
+        - name: ops-json
+          mountPath: /data/ops.json
+          subPath: ops.json
       volumes:
       - name: spigot-yml
         configMap:
           name: spigot-yml-v12
-          items:
-          - key: spigot.yml
-            path: spigot.yml
+      - name: ops-json
+        configMap:
+          name: ops-json-sandbox-test
       priorityClassName: minecraft-other-server # ここは変更しないでください (Don't change here!)
       terminationGracePeriodSeconds: 60 # 1 minute
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ops-json-sandbox-test
+data:
+  ops.json: |
+    [
+      {"uuid": "1865ab8c-700b-478b-9b52-a8c58739df1a", "name": "KotlinLove", "level": 4}
+    ]
