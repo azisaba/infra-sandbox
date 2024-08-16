@@ -128,6 +128,9 @@ spec:
               https://github.com/EssentialsX/Essentials/releases/download/2.20.1/EssentialsX-2.20.1.jar
               https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar
               https://pub-9eecc53a1bf442f0a63c7f7342e5f66a.r2.dev/1b348d17-9bc2-4b66-a4da-2eaddce39dc9/SimpleShop-1.0.0.jar
+              https://pub-9eecc53a1bf442f0a63c7f7342e5f66a.r2.dev/7650300e-8e23-43a9-93c3-83e8a4ca8dc0/LifeCore-1.15.2%2B6.16.8-all.jar
+              https://pub-9eecc53a1bf442f0a63c7f7342e5f66a.r2.dev/68b5a58c-cd48-4e2c-bbdd-f04374e4b41b/AziPluginMessaging-Spigot-4.0.4.jar
+              https://download.luckperms.net/1554/bukkit/loader/LuckPerms-Bukkit-5.4.139.jar
         # ここから下は変更非推奨
         startupProbe:
           tcpSocket:
@@ -149,6 +152,9 @@ spec:
           subPath: groups.yml
         - name: shops-sandbox-test
           mountPath: /plugins/SimpleShop/config.yml
+          subPath: config.yml
+        - name: shops-sandbox-test
+          mountPath: /plugins/LifeCore/dummy.yml
           subPath: config.yml
       volumes:
       - name: spigot-yml
