@@ -13,8 +13,8 @@ spec:
     metadata:
       labels:
         app: sandbox-test
-        stage: production # ここは変更しないでください(Don't change here!)
-        kuvel.azisaba.net/enable-server-discovery: "true" # ここは変更しないでください(Don't change here!)
+        stage: production # ここは変更しないでください (Don't change here!)
+        kuvel.azisaba.net/enable-server-discovery: "true" # ここは変更しないでください (Don't change here!)
         kuvel.azisaba.net/preferred-server-name: sandbox-test
     spec:
       containers:
@@ -43,7 +43,7 @@ spec:
           - name: SPAWN_PROTECTION
             value: "0"
           - name: ONLINE_MODE
-            value: "false" # ここは変更しないでください(Don't change here!)
+            value: "false" # ここは変更しないでください (Don't change here!)
           - name: ENABLE_COMMAND_BLOCK
             value: "true"
           - name: ALLOW_NETHER
@@ -74,6 +74,8 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.namespace
+          - name: EXTRA_ARGS
+            value: "--spigot-settings __config/spigot.yml"
           # ここにプラグインのURLのリストを記載します (Define plugins here)
           # こちらもご覧ください(英語) Also see: https://docker-minecraft-server.readthedocs.io/en/latest/mods-and-plugins/
           - name: PLUGINS
@@ -85,5 +87,15 @@ spec:
             port: 25565
           failureThreshold: 20 # 200 seconds
           periodSeconds: 10
-      priorityClassName: minecraft-development-server # ここは変更しないでください(Don't change here!)
+        volumeMounts:
+        - name: spigot-yml
+          mountPath: /data/__config
+      volumes:
+      - name: spigot-yml
+        configMap:
+          name: spigot-yml-v12
+          items:
+          - key: spigot.yml
+            path: spigot.yml
+      priorityClassName: minecraft-other-server # ここは変更しないでください (Don't change here!)
       terminationGracePeriodSeconds: 60 # 1 minute
