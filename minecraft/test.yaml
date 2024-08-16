@@ -18,7 +18,7 @@ spec:
         kuvel.azisaba.net/preferred-server-name: sandbox-test
     spec:
       containers:
-      - name: lobby-build
+      - name: sandbox-test
         image: itzg/minecraft-server:java11
         workingDir: /data
         imagePullPolicy: Always
