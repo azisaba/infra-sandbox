@@ -1,3 +1,4 @@
+# このファイルは編集しないでください(デフォルトのConfigMapなどを定義しています)
 apiVersion: v1
 kind: ConfigMap
 metadata:

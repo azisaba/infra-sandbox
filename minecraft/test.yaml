@@ -78,8 +78,8 @@ spec:
           # こちらもご覧ください(英語) Also see: https://docker-minecraft-server.readthedocs.io/en/latest/mods-and-plugins/
           - name: PLUGINS
             value: |
-              https://ci.viaversion.com/job/ViaVersion-Java8/lastSuccessfulBuild/artifact/build/libs/ViaVersion-5.0.3-downgraded.jar
-              https://ci.viaversion.com/view/ViaBackwards/job/ViaBackwards-Java8/lastSuccessfulBuild/artifact/build/libs/ViaBackwards-5.0.3-downgraded.jar
+              https://ci.viaversion.com/job/ViaVersion-Java8/14/artifact/build/libs/ViaVersion-5.0.3-downgraded.jar
+              https://ci.viaversion.com/view/ViaBackwards/job/ViaBackwards-Java8/9/artifact/build/libs/ViaBackwards-5.0.3-downgraded.jar
         startupProbe:
           tcpSocket:
             port: 25565
