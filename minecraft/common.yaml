@@ -23,11 +23,11 @@ data:
       - '&7PING: %condition:ping% &7ms'
       - '&7TPS: %condition:tps% &7/ 20.00'
       - '&7オンラインプレイヤー: &a%condition:safe_online%&7人'
-      - '&7現在地: &d${CFG_POD_NAMESPACE}&f&e/${CFG_POD_NAME} &7- %player_world%'
+      - '&7現在地: &d${CFG_POD_NAMESPACE}&7/&b${CFG_POD_NAME} &7- %player_world%'
       - '&7所持金: &f%money_formatted%'
       - '&8------------------------------------------------'
       footer:
-      - '%animation:azisaba%'
+      - 'Azisaba Network'
       per-server: {}
       disable-condition: '%world%=disabledworld|%server%=disabledserver'
     tablist-name-formatting:
