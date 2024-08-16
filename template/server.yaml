@@ -97,7 +97,18 @@ spec:
           # ホワイトリスト
           - name: ENABLE_WHITELIST
             value: "false"
+          # yml内のCFG_なんとかを置き換えるためのもの
+          - name: ENV_VARIABLE_PREFIX
+            value: "CFG_"
           # メタデータ(サーバー内で環境変数で取得可能)
+          - name: CFG_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: CFG_POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
           - name: POD_NAME
             valueFrom:
               fieldRef:
@@ -112,6 +123,8 @@ spec:
             value: |
               https://ci.viaversion.com/job/ViaVersion-Java8/14/artifact/build/libs/ViaVersion-5.0.3-downgraded.jar
               https://ci.viaversion.com/view/ViaBackwards/job/ViaBackwards-Java8/9/artifact/build/libs/ViaBackwards-5.0.3-downgraded.jar
+              https://pub-9eecc53a1bf442f0a63c7f7342e5f66a.r2.dev/245e015b-e84e-4ec2-939b-e9b70a95316b/TAB-BukkitBridge-2.1.0.jar
+              https://github.com/NEZNAMY/TAB/releases/download/4.1.7/TAB.v4.1.7.jar
         # ここから下は変更非推奨
         startupProbe:
           tcpSocket:
@@ -125,6 +138,12 @@ spec:
         - name: ops-json
           mountPath: /data/ops.json
           subPath: ops.json
+        - name: common-tab-config
+          mountPath: /plugins/TAB/config.yml
+          subPath: config.yml
+        - name: common-tab-config
+          mountPath: /plugins/TAB/groups.yml
+          subPath: groups.yml
       volumes:
       - name: spigot-yml
         configMap:
@@ -132,6 +151,9 @@ spec:
       - name: ops-json
         configMap:
           name: ops-json-sandbox-test
+      - name: common-tab-config
+        configMap:
+          name: common-tab-config
       priorityClassName: minecraft-other-server # ここは変更しないでください
       terminationGracePeriodSeconds: 60 # 1分
 ---
