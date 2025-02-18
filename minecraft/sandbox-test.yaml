@@ -149,12 +149,6 @@ spec:
         - name: common-tab-config
           mountPath: /plugins/TAB/groups.yml
           subPath: groups.yml
-        - name: shops-sandbox-test
-          mountPath: /plugins/SimpleShop/config.yml
-          subPath: config.yml
-        - name: shops-sandbox-test
-          mountPath: /plugins/LifeCore/dummy.yml
-          subPath: config.yml
       volumes:
       - name: spigot-yml
         configMap:
@@ -165,9 +159,6 @@ spec:
       - name: common-tab-config
         configMap:
           name: common-tab-config
-      - name: shops-sandbox-test
-        configMap:
-          name: shops-sandbox-test
       priorityClassName: minecraft-other-server # ここは変更しないでください
       terminationGracePeriodSeconds: 60 # 1分
 ---
