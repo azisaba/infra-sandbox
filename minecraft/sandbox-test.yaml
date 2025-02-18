@@ -39,7 +39,7 @@ spec:
           # メモリ制限 (変更非推奨)
           limits:
             cpu: "3000m"
-            memory: "5Gi"
+            memory: "10Gi"
         ports:
           - containerPort: 25565 # 変更しないでください
         env:
