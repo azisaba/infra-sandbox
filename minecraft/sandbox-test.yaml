@@ -127,9 +127,11 @@ spec:
               https://github.com/NEZNAMY/TAB/releases/download/4.1.7/TAB.v4.1.7.jar
               https://github.com/EssentialsX/Essentials/releases/download/2.20.1/EssentialsX-2.20.1.jar
               https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar
-              https://messageviewer.azisaba.net/attachments/gb1739873536201-0/70e15a32-c397-44ee-85c7-7a92a01b8e18-ShopChest-1.14-SNAPSHOT.jar
+              https://messageviewer.azisaba.net/attachments/gb1739876805262-4/12503821-4a35-4458-93e2-063c11fdd3ca-ShopChest-1.14-SNAPSHOT.jar
+              https://ci.lucko.me/job/spark/472/artifact/spark-bukkit/build/libs/spark-1.10.124-bukkit.jar
               https://pub-9eecc53a1bf442f0a63c7f7342e5f66a.r2.dev/68b5a58c-cd48-4e2c-bbdd-f04374e4b41b/AziPluginMessaging-Spigot-4.0.4.jar
               https://download.luckperms.net/1571/bukkit/loader/LuckPerms-Bukkit-5.4.154.jar
+              https://github.com/Test-Account666/PlugManX/releases/download/2.4.1/PlugManX-2.4.1.jar
         # ここから下は変更非推奨
         startupProbe:
           tcpSocket:
